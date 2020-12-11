@@ -14,14 +14,29 @@ namespace OnlineMarketplace
         protected string userType;
         
         List<User> userList = new List<User>();
+        List<Buyer> buyerList = new List<Buyer>();
+        List<Seller> sellerList = new List<Seller>();
         
-       
+
         public List<User> UserList
         {
             get { return userList; }
             set { userList = value; }
         }
-       
+
+        public List<Buyer> BuyerList
+        {
+            get { return buyerList; }
+            set { buyerList = value; }
+        }
+
+        public List<Seller> SellerList
+        {
+            get { return sellerList; }
+            set { sellerList = value; }
+        }
+
+
         public string UserID
         {
             get { return userID; }
