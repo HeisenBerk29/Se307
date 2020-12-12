@@ -7,9 +7,89 @@ namespace OnlineMarketplace
     class MenuElements
     {
         private int userIdCounter = 200000;
-        private bool breakFlag, breakFlag2;
+        private bool breakFlag, breakFlag2, failmessage;
         private string shopName,name,location,tempPassword,password,ID;
         User user = new User();
+        private User accountInUse;
+        private Seller accountInUseSeller;
+        private Buyer accountInUseBuyer;
+
+
+        public User AccountInUse
+        {
+            get { return accountInUse; }
+            set { accountInUse = value; }
+        }
+
+        public Seller AccountInUseSeller
+        {
+            get { return accountInUseSeller; }
+            set { accountInUseSeller = value; }
+        }
+
+        public Buyer AccountInUseBuyer
+        {
+            get { return accountInUseBuyer; }
+            set { accountInUseBuyer = value; }
+        }
+
+        public bool LoginAccount()
+        {
+            breakFlag = true;
+            failmessage = true;
+            while (breakFlag)
+            {
+                Console.WriteLine("1)Buyer Login");
+                Console.WriteLine("2)Seller Login");
+                Console.WriteLine("0)Go back");
+                string login = Console.ReadLine();
+                if (login == "0")
+                    return false;
+
+                Console.WriteLine("Enter your user ID: ");
+                ID = Console.ReadLine();
+
+                Console.WriteLine("Enter your password: ");
+                password = Console.ReadLine();
+
+                if (login == "1")
+                {
+                    for (int i = 0; i < user.BuyerList.Count; i++)
+                    {
+                        if (ID == user.BuyerList[i].UserID && password == user.BuyerList[i].Password)
+                        {
+                            accountInUseBuyer = user.BuyerList[i];
+                            accountInUse = user.BuyerList[i];
+                            Console.WriteLine("Login Successful!");
+                            failmessage = false;
+                            breakFlag = false;
+                            return true;
+                        }
+                    }
+                }
+
+                else if (login == "2")
+                {
+                    for (int i = 0; i < user.SellerList.Count; i++)
+                    {
+                        if (ID == user.SellerList[i].UserID && password == user.SellerList[i].Password)
+                        {
+                            accountInUseSeller = user.SellerList[i];
+                            accountInUse = user.SellerList[i];
+                            Console.WriteLine("Login Successful!");
+                            failmessage = false;
+                            breakFlag = false;
+                            return true;
+                        }
+                    }
+                }
+                if (failmessage)
+                {
+                    Console.WriteLine("Password or ID is wrong please try again");
+                }
+            }
+            return true;
+        }
 
         public void CreateAccount()
         {
