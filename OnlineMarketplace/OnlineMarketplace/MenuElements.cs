@@ -12,6 +12,7 @@ namespace OnlineMarketplace
         private double price, weight;
         private string shopName,name,location,tempPassword,password,ID,input,description,category,deleteID;
         User user = new User();
+        Item item = new Item();
         private User accountInUse;
         private Seller accountInUseSeller;
         private Buyer accountInUseBuyer;
@@ -177,6 +178,125 @@ namespace OnlineMarketplace
                 }
             }
         }
-        
+        public void addRemoveItems()
+        {
+            breakFlag2 = true;
+            while (breakFlag2)
+            {
+                Console.WriteLine("1) Add product");
+                Console.WriteLine("2) Remove product");
+                Console.WriteLine("0) Go back");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        breakFlag = true;
+                        while (breakFlag)
+                        {
+                            Console.WriteLine("Select the category of the item that you want to add");
+                            Console.WriteLine("1) Electronics");
+                            Console.WriteLine("2) Clothing");
+                            Console.WriteLine("3) Personal Care");
+                            Console.WriteLine("0) Go back");
+                            input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "1":
+                                    category = "Electronics";
+                                    break;
+                                case "2":
+                                    category = "Clothing";
+                                    break;
+                                case "3":
+                                    category = "Personal Care";
+                                    break;
+                                case "0":
+                                    break;
+                                default:
+                                    Console.WriteLine("Please enter a valid input");
+                                    break;
+                            }
+                            if (input == "0")
+                                break;
+                            Console.WriteLine("Enter product name");
+                            name = Console.ReadLine();
+                            Console.WriteLine("Enter product price");
+                            price = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine("Enter product weight");
+                            weight = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine("Enter description");
+                            description = Console.ReadLine();
+                            Item addedItem = new Item(name, weight, price, accountInUseSeller.UserID, description, category, Convert.ToString(itemId));
+                            itemId++;
+                            item.ItemList.Add(addedItem);
+                            accountInUseSeller.ItemsInShop.Add(addedItem);
+                            Console.WriteLine("Product has been added to the marketplace successfully!");
+                        }
+                        break;
+                    case "2":
+                        breakFlag = true;
+                        while (breakFlag)
+                        {
+                            if (accountInUseSeller.ItemsInShop.Count == 0)
+                            {
+                                Console.WriteLine("You dont have any products on the marketplace");
+                                break;
+                            }
+                            Console.WriteLine("1) Remove from the list");
+                            Console.WriteLine("2) Remove with name");
+                            Console.WriteLine("0) Go back");
+                            input = Console.ReadLine();
+                            switch (input)
+                            {
+                                case "1":
+                                    int i;
+                                    for (i = 0; i < accountInUseSeller.ItemsInShop.Count; i++)
+                                    {
+                                        Console.WriteLine(i + 1 + ") " + accountInUseSeller.ItemsInShop[i].Name);
+                                    }
+
+                                    int delete = Convert.ToInt32(Console.ReadLine());
+                                    deleteID = accountInUseSeller.ItemsInShop[delete - 1].ItemID;
+                                    accountInUseSeller.ItemsInShop.RemoveAt(delete - 1);
+                                    for (i = 0; i < item.ItemList.Count; i++)
+                                        if (deleteID == item.ItemList[i].ItemID)
+                                            item.ItemList.RemoveAt(i);
+                                    Console.WriteLine("Product removed successfully");
+                                    break;
+
+                                case "2":
+                                    Console.WriteLine("Enter the name of the product to be removed");
+                                    name = Console.ReadLine();
+                                    for (i = 0; i < accountInUseSeller.ItemsInShop.Count; i++)
+                                        if (accountInUseSeller.ItemsInShop[i].Name == name)
+                                        {
+                                            deleteID = accountInUseSeller.ItemsInShop[i].ItemID;
+                                            accountInUseSeller.ItemsInShop.RemoveAt(i);
+                                        }
+                                    for (i = 0; i < item.ItemList.Count; i++)
+                                        if (deleteID == item.ItemList[i].ItemID)
+                                        {
+                                            Console.WriteLine(item.ItemList[i].Name + " has been removed successfully");
+                                            item.ItemList.RemoveAt(i);
+                                        }
+                                    break;
+                                case "0":
+                                    break;
+                                default:
+                                    Console.WriteLine("Please enter a valid input");
+                                    break;
+                            }
+                            breakFlag = false;
+                        }
+                        break;
+                    case "0":
+                        breakFlag2 = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        }
     }
 }
