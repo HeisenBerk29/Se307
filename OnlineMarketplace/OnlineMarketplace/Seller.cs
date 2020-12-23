@@ -8,7 +8,7 @@ namespace OnlineMarketplace
     {        
         protected string shopName;
 
-        //List<Item> itemsInShop = new List<Item>(); will be implemented with item class
+        List<Item> itemsInShop = new List<Item>();
               
         public Seller(string shopName,string UserID,string Location,string Name,string Password):base()
         {            
@@ -21,11 +21,11 @@ namespace OnlineMarketplace
             userType = "Seller";
         }
 
-        /*public List<Item> ItemsInShop
+        public List<Item> ItemsInShop
         {
             get { return itemsInShop; }
             set { itemsInShop = value; }
-        }*/ //will be implemented with item class
+        }
 
         public string ShopName
         {

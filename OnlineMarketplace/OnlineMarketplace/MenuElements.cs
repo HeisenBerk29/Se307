@@ -8,7 +8,9 @@ namespace OnlineMarketplace
     {
         private int userIdCounter = 200000;
         private bool breakFlag, breakFlag2, failmessage;
-        private string shopName,name,location,tempPassword,password,ID;
+        private int itemId = 0001;
+        private double price, weight;
+        private string shopName,name,location,tempPassword,password,ID,input,description,category,deleteID;
         User user = new User();
         private User accountInUse;
         private Seller accountInUseSeller;
@@ -175,5 +177,6 @@ namespace OnlineMarketplace
                 }
             }
         }
+        
     }
 }
