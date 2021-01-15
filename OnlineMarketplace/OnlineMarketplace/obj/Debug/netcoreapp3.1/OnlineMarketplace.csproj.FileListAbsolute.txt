@@ -1,0 +1,13 @@
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.exe
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.deps.json
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.runtimeconfig.json
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.runtimeconfig.dev.json
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.dll
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\bin\Debug\netcoreapp3.1\OnlineMarketplace.pdb
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.csprojAssemblyReference.cache
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.AssemblyInfoInputs.cache
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.AssemblyInfo.cs
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.csproj.CoreCompileInputs.cache
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.dll
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.pdb
+C:\Users\berk-\Documents\GitHub\Se307\OnlineMarketplace\OnlineMarketplace\obj\Debug\netcoreapp3.1\OnlineMarketplace.genruntimeconfig.cache
