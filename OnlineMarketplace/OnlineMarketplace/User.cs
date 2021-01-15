@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnlineMarketplace
 {
-    public class User
+    class User
     {
         protected string userID;
         protected string location;

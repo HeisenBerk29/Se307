@@ -347,6 +347,49 @@ namespace OnlineMarketplace
             }
         }
 
+        public void Basket()
+        {
+            breakFlag = true;
+            while (breakFlag)
+            {
+                Console.WriteLine("1) Your basket");
+                Console.WriteLine("2) Checkout");
+                Console.WriteLine("0) Go back");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        accountInUseBuyer.displayBasket();
+                        break;
+                    case "2":
+                        if (accountInUseBuyer.Balance >= accountInUseBuyer.TotalBasketPrice)
+                        {
+                            for (int i = 0; i < accountInUseBuyer.Basket.Count; i++)
+                            {
+                                for (int j = 0; j < user.SellerList.Count; j++)
+                                {
+                                    if (accountInUseBuyer.Basket[i].SellerID == user.SellerList[j].UserID)
+                                    {
+                                        double price = accountInUseBuyer.Basket[i].Price;
+                                        accountInUseBuyer.Balance -= price;
+                                        user.SellerList[j].Balance += price;
+                                    }
+                                }
+                            }
+                            Console.WriteLine("Checkout Complete! Have a nice day.");
+                        }
+                        else
+                            Console.WriteLine("Insufficient balance! Please add money to your account and try again");
+                        break;
+                    case "0":
+                        breakFlag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input! Try again.");
+                        break;
+                }
+            }
+        }
+
 
     }
 }
