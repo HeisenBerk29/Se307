@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnlineMarketplace
 {
-    public class Seller : User
+    class Seller : User
     {        
         protected string shopName;
 
@@ -41,6 +41,14 @@ namespace OnlineMarketplace
             Console.WriteLine("Name Surname: " + name);
             Console.WriteLine("Location: " + location);
             Console.WriteLine("Account balance: " + balance+"TL");
+        }
+
+        public void showItemsInShop()
+        {
+            for (int i = 0; i < itemsInShop.Count; i++)
+            {
+                Console.WriteLine(i + 1 + ") " + itemsInShop[i].Name);
+            }
         }
 
 

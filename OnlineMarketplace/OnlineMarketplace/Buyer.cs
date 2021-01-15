@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OnlineMarketplace
 {
-    public class Buyer : User
+    class Buyer : User
     {
         List<Item> basket = new List<Item>();
         private double totalBasketPrice;
