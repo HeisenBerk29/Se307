@@ -76,6 +76,16 @@ namespace OnlineMarketplace
             get { return category; }
             set { category = value; }
         }
+
+        public void showItemInfo()
+        {
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Price: " + price);
+            Console.WriteLine("Category: " + category);
+            Console.WriteLine("Weight: " + weight);
+            Console.WriteLine("Item ID: " + itemID);
+            Console.WriteLine("Seller ID: " + sellerID);
+            Console.WriteLine("Description: " + description);
+        }
     }
-}
 }

@@ -298,5 +298,54 @@ namespace OnlineMarketplace
             }
 
         }
+        public void MarketPlace()
+        {
+            breakFlag = true;
+            while (breakFlag)
+            {
+                Console.WriteLine("1) Show all items for sale");
+                Console.WriteLine("0) Go back");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        breakFlag2 = true;
+                        while (breakFlag2)
+                        {
+                            Console.WriteLine("Select the item to see its info");
+                            Console.WriteLine("Press 0 to go back");
+                            for (int i = 0; i < item.ItemList.Count; i++)
+                            {
+                                Console.WriteLine(i + 1 + ") " + item.ItemList[i].Name);
+                            }
+                            int itemSelect = Convert.ToInt32(Console.ReadLine()) - 1;
+                            if (itemSelect == -1)
+                            {
+                                breakFlag2 = false;
+                            }
+                            else
+                            {
+                                item.ItemList[itemSelect].showItemInfo();
+                                Console.WriteLine("1) Add to basket ");
+                                Console.WriteLine("0) Go back");
+                                int input = Convert.ToInt32(Console.ReadLine());
+                                if (input == 1)
+                                {
+                                    accountInUseBuyer.Basket.Add(item.ItemList[itemSelect]);
+                                    Console.WriteLine("Item has been added to the basket");
+                                }
+                            }
+                        }
+                        break;
+
+                    case "0":
+                        breakFlag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input! Try again.");
+                        break;
+                }
+            }
+        }
+
     }
 }
